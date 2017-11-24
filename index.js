@@ -31,20 +31,15 @@ io.on('connection', function(socket){
   		
   	});
 });
-/*
 setInterval(function(){
-	console.log("---------------------------------------------------------------------------------------");
-	console.log("|Sr|id                                                                                 |");
-	console.log("---------------------------------------------------------------------------------------");
 	var count=0;
 	for(key in activeQrs){
 		++count;
-		console.log("| "+count+"|"+key);
 	}
-	console.log("---------------------------------------------------------------------------------------");
+	console.log("active peers : "+count);
 
-},3000);
-*/
+},10000);
+
 http.listen(process.env.PORT || 3000, function(){
   console.log('listening on *:'+(process.env.PORT || 3000));
 });
