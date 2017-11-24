@@ -9,7 +9,7 @@ app.get('/', function(req, res){
 var activeQrs={};
 
 io.on('connection', function(socket){
-	console.log("new connection :"+session.id);
+	console.log("new connection :"+socket.id);
 	if(socket.handshake.query.sessionId){
 		activeQrs[socket.handshake.query.sessionId]={
 			socket:socket,
