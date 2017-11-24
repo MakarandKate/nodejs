@@ -9,6 +9,7 @@ app.get('/', function(req, res){
 var activeQrs={};
 
 io.on('connection', function(socket){
+	console.log("new connection :"+session.id);
 	if(socket.handshake.query.sessionId){
 		activeQrs[socket.handshake.query.sessionId]={
 			socket:socket,
@@ -25,6 +26,7 @@ io.on('connection', function(socket){
   	socket.on('scan',function(msg){
   		var payload=JSON.parse(msg);
   		
+		console.log("scan :"+msg);
   		activeQrs[payload.url].socket.emit('userDetails',payload);
   		
   	});
